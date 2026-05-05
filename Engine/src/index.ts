@@ -22,6 +22,7 @@ const PADDLE_HEIGHT = 80;
 const PADDLE_PADDING = 30;
 const PADDLE_WIDTH = 6;
 const BALL_RADIUS = 8;
+const PADDLE_SPEED = 4;
 
 // Game objects
 const paddleLeft: Paddle = {
@@ -41,6 +42,10 @@ const ball: Ball = {
   y: Y_MIDDLE,
   radius: BALL_RADIUS,
 };
+
+const keys: Record<string, boolean> = {};
+document.addEventListener('keydown', (e) => (keys[e.key] = true));
+document.addEventListener('keyup', (e) => (keys[e.key] = false));
 
 const drawMiddleLine = () => {
   ctx.strokeStyle = 'rgba(255 255 255 / 60%)';
@@ -83,7 +88,30 @@ const draw = () => {
 };
 
 // Handle the game logic
-const update = () => {};
+const update = () => {
+  // Move the paddles up and down
+  if (keys['w'] || keys['W']) paddleLeft.y -= PADDLE_SPEED;
+  if (keys['s'] || keys['S']) paddleLeft.y += PADDLE_SPEED;
+  if (keys['ArrowUp']) paddleRight.y -= PADDLE_SPEED;
+  if (keys['ArrowDown']) paddleRight.y += PADDLE_SPEED;
+
+  // Check boundaries for the paddles
+  const paddleLeftMiddle = paddleLeft.height / 2;
+  if (paddleLeft.y - paddleLeftMiddle < 0) {
+    paddleLeft.y = paddleLeftMiddle;
+  }
+  if (paddleLeft.y + paddleLeftMiddle > HEIGHT) {
+    paddleLeft.y = HEIGHT - paddleLeftMiddle;
+  }
+
+  const paddleRightMiddle = paddleRight.height / 2;
+  if (paddleRight.y - paddleRightMiddle < 0) {
+    paddleRight.y = paddleRightMiddle;
+  }
+  if (paddleRight.y + paddleRightMiddle > HEIGHT) {
+    paddleRight.y = HEIGHT - paddleRightMiddle;
+  }
+};
 
 // Game loop
 const loop = () => {
