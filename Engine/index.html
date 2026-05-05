@@ -1,13 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game Engine</title>
-    <script src="src/Renderer.js" defer></script>
-    <script src="src/World.js" defer></script>
-    <script src="src/Engine.js" defer></script>
-    <script src="src/index.js" defer></script>
+    <style>
+      body {
+        margin: 0;
+        background: #111;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      canvas {
+        background: #000;
+        display: block;
+      }
+    </style>
+    <script src="dist/index.js" defer type="module"></script>
   </head>
-  <body></body>
+  <body>
+    <canvas id="canvas" width="640" height="400"
+      >Your browser does not support Javascript canvas.
+    </canvas>
+  </body>
 </html>

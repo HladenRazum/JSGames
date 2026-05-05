@@ -1,6 +1,12 @@
   Help me learn how to build games with JS.
-  First, lests start with building my own game engine
+  First, lets start with building my own game engine
 
   todo:
   - Create Pong with my own game engine
   - Create Pong with PixiJS / other game engine to see the differences
+
+
+  Next:
+  - Add features
+  - Use classes/entities
+  - Replace classes/entities with systems
