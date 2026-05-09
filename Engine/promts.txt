@@ -5,8 +5,15 @@
   - Create Pong with my own game engine
   - Create Pong with PixiJS / other game engine to see the differences
 
+## Improve the paddle game
 
-  Next:
-  - Add features
-  - Use classes/entities
-  - Replace classes/entities with systems
+- Add AI
+- Show a trail after the ball
+- Sounds
+- Refactor the code
+- Scoreboard
+- Game states
+- Multiplayer (online with websockets / other)
+- Spin on the ball
+- Bonus effects that spawn and can be triggered
+- Special abilities - slow time, attract the ball like a magnet, expand paddle height - add these effects on hotkeys for testing
